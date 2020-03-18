@@ -6,23 +6,22 @@ Solidity
     :alt: Solidity logo
     :align: center
 
-Solidity is an object-oriented, high-level language for implementing smart
-contracts. Smart contracts are programs which govern the behaviour of accounts
-within the Ethereum state.
+Solidity ist eine objektorientierte, höhere Programmiersprache um Smart Contracts zu implementieren.
+Smart Contracts sind Programme die das Verhalten von Accounts innerhalb
+des Ethereum States verwalten.
 
-Solidity was influenced by C++, Python and JavaScript and is designed to target
-the Ethereum Virtual Machine (EVM).
+Solidity wurde von C++, Python und JavaScript beeinflusst und wurde für die
+Ethereum Virtual Machine (EVM) entworfen.
 
-Solidity is statically typed, supports inheritance, libraries and complex
-user-defined types among other features.
+Solidity ist statisch typisiert, unterstützt Vererbung, Bibliotheken, komplexe
+benutzerdefinierte Typen und viele weitere Konzepte.
 
-With Solidity you can create contracts for uses such as voting, crowdfunding, blind auctions,
-and multi-signature wallets.
+Mit Solidity ist es möglich Contracts zu erstellen, die für Wahlen, Crowdfunding, blinde Auktionen
+und Multi-Signature Wallets eingesetzt werden können.
 
-When deploying contracts, you should use the latest released
-version of Solidity. This is because breaking changes as well as
-new features and bug fixes are introduced regularly. We currently use
-a 0.x version number `to indicate this fast pace of change <https://semver.org/#spec-item-4>`_.
+Bei dem Deployment von Contracts, sollte stets die neuste Version von Solidity verwendet werden.
+Breaking Changes, neue Features und Bugfixes werden regelmäßig implementiert.
+Aktuell befinden wir uns bei einer 0.x Versionsnummer, `was die schnelle Entwicklung zeigen soll<https://semver.org/#spec-item-4>`_.
 
 .. warning::
 
@@ -104,3 +103,4 @@ Contents
    common-patterns.rst
    bugs.rst
    contributing.rst
+file:///home/development/Desktop/solidity-docs/solidity-docs-de/index.rst
