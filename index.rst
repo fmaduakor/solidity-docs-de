@@ -24,27 +24,25 @@ Breaking Changes, neue Features und Bugfixes werden regelmäßig implementiert.
 Aktuell befinden wir uns bei einer 0.x Versionsnummer, `was die schnelle Entwicklung zeigen soll<https://semver.org/#spec-item-4>`_.
 
 .. warning::
+  Neulich wurde die Solidity Version 0.6.x veröffentlicht, die eine Vielzahl an Breaking Changes
+  einführt. Bitte lies :doc:`die vollständige Liste der Breaking Changes <060-breaking-changes>`.
 
-  Solidity recently released the 0.6.x version that introduced a lot of breaking
-  changes. Make sure you read :doc:`the full list <060-breaking-changes>`.
-
-Language Documentation
+Dokumentation
 ----------------------
 
-If you are new to the concept of smart contracts we recommend you start with
-:ref:`an example smart contract <simple-smart-contract>` written
-in Solidity. When you are ready for more detail, we recommend you read the
-:doc:`"Solidity by Example" <solidity-by-example>` and
-:doc:`"Solidity in Depth" <solidity-in-depth>` sections to learn the core concepts of the language.
+Wenn das Konzept von Smart Contracts neu für dich ist, empfehlen wir dir mit dem Kapital 
+:ref:`Simple Beispiele in Solidity <simple-smart-contract>` zu beginnen.
+Wenn du bereit für mehr Details bist, dann kannst du in den Kapiteln
+:doc:`"Solidity anhand von Beispielen" <solidity-by-example>` und
+:doc:`"Details von Solidity" <solidity-in-depth>` die Grundkonzepte der Sprache lernen.
 
-For further reading, try :ref:`the basics of blockchains <blockchain-basics>`
-and details of the :ref:`Ethereum Virtual Machine <the-ethereum-virtual-machine>`.
+Möchtest du mehr Informationen, schau dir :ref:`die Grundkonzepte der Blockchains <blockchain-basics>` 
+und die Details der :ref:`Ethereum Virtual Machine <the-ethereum-virtual-machine>` an.
 
 .. hint::
-  You can always try out code examples in your browser with the
-  `Remix IDE <https://remix.ethereum.org>`_. Remix is a web browser based IDE
-  that allows you to write Solidity smart contracts, then deploy and run the
-  smart contracts. It can take a while to load, so please be patient.
+  Du kannst jederzeit Cocdebeispiele in deinem Browser mit der 
+  `Remix IDE <https://remix.ethereum.org>`_ testen. Remix ist eine webbasierte IDE, die es dir erlaubt Solidity Smart Contracts zu erstellen, zu deployen und auszuführen.
+  Bitte beachte, dass es sein kann, dass sie einige Zeit zum Laden benötigt.
 
 .. warning::
     As humans write software, it can have bugs. You should follow established
