@@ -45,40 +45,39 @@ und die Details der :ref:`Ethereum Virtual Machine <the-ethereum-virtual-machine
   Bitte beachte, dass es sein kann, dass sie einige Zeit zum Laden benötigt.
 
 .. warning::
-    As humans write software, it can have bugs. You should follow established
-    software development best-practices when writing your smart contracts, this
-    includes code review, testing, audits, and correctness proofs. Smart contract
-    users are sometimes more confident with code than their authors, and
-    blockchains and smart contracts have their own unique issues to
-    watch out for, so before working on production code, make sure you read the
-    :ref:`security_considerations` section.
+    Da Software von Menschen geschrieben wird, kann sie Bugs enthalten.
+    Bitte achte bei der Erstellung von Smart Contracts darauf Best-Practises einzuhalten.
+    Dies beinhaltet ein Code Review, Testen, Auditierung und Korrektheitsbeweise.
+    Die Nutzer von Smart Contracts vertrauen diesen manchmal mehr als deren Entwicklern.
+    Blockchains und Smart Contracts haben individuelle Probleme auf die geachtet werden sollen.
+    Bevor du Smart Contracts für Nutzer einsetzbar machst, lies bitte den Abschnitt  :ref:`security_considerations` section.
 
-If you have any questions, you can try searching for answers or asking on the
-`Ethereum Stackexchange <https://ethereum.stackexchange.com/>`_, or
-our `gitter channel <https://gitter.im/ethereum/solidity/>`_.
+Solltest du Fragen haben, kannst du bei 
+`Ethereum Stackexchange <https://ethereum.stackexchange.com/>`_,  oder unserem
+ `Gitter Channel <https://gitter.im/ethereum/solidity/>`_ nach Antworten zu suchen oder deine Fragen stellen.
 
-Ideas for improving Solidity or this documentation are always welcome,
-read our :doc:`contributors guide <contributing>` for more details.
+Wir freuen uns über Ideen wie Solidity oder diese Dokumentation verbessert werden kann.
+Lies unseren :doc:`contributors guide <contributing>` für mehr Details hierfür.
+
 
 .. _translations:
 
-Translations
+Überetzungen
 ------------
 
-Community volunteers help translate this documentation into several languages.
-They have varying degrees of completeness and up-to-dateness. The English
-version stands as a reference.
+Frewillige aus der Community helfen dabei diese Dokumentation in mehrere Sprachen zu übersetzen.
+Diese Dokumenten sind teilweise nicht up-to-date oder vollständig verfügbar. Die englische Version gilt stets als Referenz.
 
-* `French <http://solidity-fr.readthedocs.io>`_ (in progress)
-* `Italian <https://github.com/damianoazzolini/solidity>`_ (in progress)
+* `French <http://solidity-fr.readthedocs.io>`_ (In Bearbeitung)
+* `Italian <https://github.com/damianoazzolini/solidity>`_ (In Bearbeitung)
 * `Japanese <https://solidity-jp.readthedocs.io>`_
-* `Korean <http://solidity-kr.readthedocs.io>`_ (in progress)
-* `Russian <https://github.com/ethereum/wiki/wiki/%5BRussian%5D-%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE-Solidity>`_ (rather outdated)
-* `Simplified Chinese <http://solidity-cn.readthedocs.io>`_ (in progress)
+* `Korean <http://solidity-kr.readthedocs.io>`_ (In Bearbeitung)
+* `Russian <https://github.com/ethereum/wiki/wiki/%5BRussian%5D-%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE-Solidity>`_ (eher veraltet)
+* `Simplified Chinese <http://solidity-cn.readthedocs.io>`_ (In Bearbeitung)
 * `Spanish <https://solidity-es.readthedocs.io>`_
-* `Turkish <https://github.com/denizozzgur/Solidity_TR/blob/master/README.md>`_ (partial)
+* `Turkish <https://github.com/denizozzgur/Solidity_TR/blob/master/README.md>`_ (teilweise)
 
-Contents
+Inhalte
 ========
 
 :ref:`Keyword Index <genindex>`, :ref:`Search Page <search>`
