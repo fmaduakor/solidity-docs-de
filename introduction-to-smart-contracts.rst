@@ -1,18 +1,19 @@
 ###############################
-Introduction to Smart Contracts
+Einführung in Smart Contracts
 ###############################
 
 .. _simple-smart-contract:
 
 ***********************
-A Simple Smart Contract
+Ein einfacherer Smart Contract
 ***********************
 
-Let us begin with a basic example that sets the value of a variable and exposes
-it for other contracts to access. It is fine if you do not understand
-everything right now, we will go into more detail later.
+Lass uns mit einem einfachen Beispiel anfangen, bei dem der Wert einer variable
+gesetzt wird und ihn für andere Smart Contracts zugreifbar macht.
+Es ist in Ordnung, wenn du jetzt noch nicht alles verstehst. Weitere Details
+schauen wir uns später an.
 
-Storage Example
+Speicher Beispiel
 ===============
 
 ::
@@ -31,11 +32,12 @@ Storage Example
         }
     }
 
-The first line tells you that the source code is written for
-Solidity version 0.4.0, or a newer version of the language up to, but not including version 0.7.0.
-This is to ensure that the contract is not compilable with a new (breaking) compiler version, where it could behave differently.
-:ref:`Pragmas<pragma>` are common instructions for compilers about how to treat the
-source code (e.g. `pragma once <https://en.wikipedia.org/wiki/Pragma_once>`_).
+Die erste Zeile zeigt dir an, dass der Source Code für die Solidity Version 0.4.0 oder höher, aber nicht
+mehr für die Version 0.7.0 oder höher, geschrieben wurde.
+Hierdurch wird sichergestellt, dass der Smart Contract nicht mit neueren (breaking) Compiler Versionen kompatibel ist,
+bei denen der Smart Contract sich unterschiedlich verhalten könnte.
+:ref:`Pragmas<pragma>` sind Anweisungen für Compiler, die angeben wie der Compiler mit dem Source Code umgehen soll
+(z.B. `pragma once <https://en.wikipedia.org/wiki/Pragma_once>`_).
 
 A contract in the sense of Solidity is a collection of code (its *functions*) and
 data (its *state*) that resides at a specific address on the Ethereum

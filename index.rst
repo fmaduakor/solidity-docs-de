@@ -21,7 +21,7 @@ und Multi-Signature Wallets eingesetzt werden können.
 
 Bei dem Deployment von Contracts, sollte stets die neuste Version von Solidity verwendet werden.
 Breaking Changes, neue Features und Bugfixes werden regelmäßig implementiert.
-Aktuell befinden wir uns bei einer 0.x Versionsnummer, `was die schnelle Entwicklung zeigen soll<https://semver.org/#spec-item-4>`_.
+Aktuell befinden wir uns bei einer 0.x Versionsnummer, `was die schnelle Entwicklung zeigen soll <https://semver.org/#spec-item-4>`_.
 
 .. warning::
   Neulich wurde die Solidity Version 0.6.x veröffentlicht, die eine Vielzahl an Breaking Changes
@@ -68,14 +68,14 @@ Lies unseren :doc:`contributors guide <contributing>` für mehr Details hierfür
 Frewillige aus der Community helfen dabei diese Dokumentation in mehrere Sprachen zu übersetzen.
 Diese Dokumenten sind teilweise nicht up-to-date oder vollständig verfügbar. Die englische Version gilt stets als Referenz.
 
-* `French <http://solidity-fr.readthedocs.io>`_ (In Bearbeitung)
-* `Italian <https://github.com/damianoazzolini/solidity>`_ (In Bearbeitung)
-* `Japanese <https://solidity-jp.readthedocs.io>`_
-* `Korean <http://solidity-kr.readthedocs.io>`_ (In Bearbeitung)
-* `Russian <https://github.com/ethereum/wiki/wiki/%5BRussian%5D-%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE-Solidity>`_ (eher veraltet)
-* `Simplified Chinese <http://solidity-cn.readthedocs.io>`_ (In Bearbeitung)
-* `Spanish <https://solidity-es.readthedocs.io>`_
-* `Turkish <https://github.com/denizozzgur/Solidity_TR/blob/master/README.md>`_ (teilweise)
+* `Französisch <http://solidity-fr.readthedocs.io>`_ (In Bearbeitung)
+* `Italienisch <https://github.com/damianoazzolini/solidity>`_ (In Bearbeitung)
+* `Japanisch <https://solidity-jp.readthedocs.io>`_
+* `Koreanisch <http://solidity-kr.readthedocs.io>`_ (In Bearbeitung)
+* `Russisch <https://github.com/ethereum/wiki/wiki/%5BRussian%5D-%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE-Solidity>`_ (eher veraltet)
+* `Chinesisch<http://solidity-cn.readthedocs.io>`_ (In Bearbeitung)
+* `Spanisch <https://solidity-es.readthedocs.io>`_
+* `Türkisch <https://github.com/denizozzgur/Solidity_TR/blob/master/README.md>`_ (teilweise)
 
 Inhalte
 ========
