@@ -4,9 +4,9 @@ Einführung in Smart Contracts
 
 .. _simple-smart-contract:
 
-***********************
+*******************************
 Ein einfacherer Smart Contract
-***********************
+*******************************
 
 Lass uns mit einem einfachen Beispiel anfangen, bei dem der Wert einer variable
 gesetzt wird und ihn für andere Smart Contracts zugreifbar macht.
@@ -14,7 +14,7 @@ Es ist in Ordnung, wenn du jetzt noch nicht alles verstehst. Weitere Details
 schauen wir uns später an.
 
 Speicher Beispiel
-===============
+==================
 
 ::
 
@@ -39,33 +39,33 @@ bei denen der Smart Contract sich unterschiedlich verhalten könnte.
 :ref:`Pragmas<pragma>` sind Anweisungen für Compiler, die angeben wie der Compiler mit dem Source Code umgehen soll
 (z.B. `pragma once <https://en.wikipedia.org/wiki/Pragma_once>`_).
 
-A contract in the sense of Solidity is a collection of code (its *functions*) and
-data (its *state*) that resides at a specific address on the Ethereum
-blockchain. The line ``uint storedData;`` declares a state variable called ``storedData`` of
-type ``uint`` (*u*\nsigned *int*\eger of *256* bits). You can think of it as a single slot
-in a database that you can query and alter by calling functions of the
-code that manages the database. In this example, the contract defines the
-functions ``set`` and ``get`` that can be used to modify
-or retrieve the value of the variable.
+Ein Contract ist im Sinne von Solidity eine Ansammlung von Code (seine *Funktionen*)
+und Daten (sein *State*) der an einer bestimmten Adresse auf der Ethereum
+Blockchain liegt. Die Zeile ``uint storedData;`` deklariert eine state Variable
+die ``storedData`` heißt und vom Typ ``uint`` (*u*\nsigned *int*\eger von *256* Bits) ist.
+Man kann es sich vorstellen, wie eine einzelner Eintrag in einer Datenbank den man durch 
+Funktionen, die diesen Eintrag verwalten, aufrufen oder verändern kann. 
+In diesem Beispiel definiert der Contract die Funktionen ``set`` und ``get``, die dafür verwendet werden
+können den Wert der Variable zu verändern oder abzurufen.
 
-To access a state variable, you do not need the prefix ``this.`` as is common in
-other languages.
+Anders als in anderen Sprachen üblich, wird bei Solidity der Prefix ``this.`` nicht benötigt um auf state Variablen zuzugreifen.
 
-This contract does not do much yet apart from (due to the infrastructure
-built by Ethereum) allowing anyone to store a single number that is accessible by
-anyone in the world without a (feasible) way to prevent you from publishing
-this number. Anyone could call ``set`` again with a different value
-and overwrite your number, but the number is still stored in the history
-of the blockchain. Later, you will see how you can impose access restrictions
-so that only you can alter the number.
+Dieser Contract mach nicht viel mehr außer (bedingt durch die Infrastruktur von Ethereum) weltweit jedem zu erlauben eine einzelne Zahl zu speichern,
+auf die weltweit zugegriffen werden kann, ohne dass es einen (realistischen) Weg gibt jemanden
+daran zu hindern diese Zahl zu veröffentlichen. Jeder kann die Funktion ``set`` erneut mit einer
+neuen Zahl aufrufen und die bestehende Zahl überschreiben, aber die vorher gespeicherte Zahl 
+wird weiterhin in der History der Blockchain gespeichert. Wir werden später sehen, wie wir
+Zugriffsbeschränkungen festlegen können, damit nur wir in der Lage sind diese Zahl zu verändern.
 
 .. warning::
-    Be careful with using Unicode text, as similar looking (or even identical) characters can
-    have different code points and as such are encoded as a different byte array.
+    Sei vorsichtig mit Unicode Text, da ähnlich aussehende (oder sogar identische) Zeichen
+    unterschiedliche Codepoints besitzen können und somit als unterschiedliched Byte Arrays kodiert werden.
+
 
 .. note::
-    All identifiers (contract names, function names and variable names) are restricted to
-    the ASCII character set. It is possible to store UTF-8 encoded data in string variables.
+    Alle Bezeichner (engl.: Identifier) sind begrenzt auf das 
+    ASCII Charakterset. Es ist möglich UTF-8 kodierte Daten in String Variablen zu speichern. Bezeichner sind Contractnamen, Funktionsnamen und Variablennamen.
+
 
 .. index:: ! subcurrency
 
