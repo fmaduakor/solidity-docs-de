@@ -69,44 +69,44 @@ Zugriffsbeschränkungen festlegen können, damit nur wir in der Lage sind diese 
 
 .. index:: ! subcurrency
 
-Subcurrency Example
-===================
+Subcurrency Beispiel
+====================
 
-The following contract implements the simplest form of a
-cryptocurrency. The contract allows only its creator to create new coins (different issuance schemes are possible).
-Anyone can send coins to each other without a need for
-registering with a username and password, all you need is an Ethereum keypair.
+Der folgende Contract implementiert die einfachste Form 
+einer Kryptowährung. Der Contract erlaubt nur dem Ersteller 
+neue Coins zu erstellen (verschiedene Erstellungsreglungen sind möglich).
+Jeder kann zu jedem Coins senden ohne sich vorab mit einem Benutzernamen
+und Passwort zu registieren. Es wird nur ein Ethereum Schlüsselpaar benötigt. 
 
 ::
 
     pragma solidity >=0.5.0 <0.7.0;
 
     contract Coin {
-        // The keyword "public" makes variables
-        // accessible from other contracts
+    
+        // Das Schlüsselwort "public" macht
+        // Variablen für andere Contracts zugreifbar
         address public minter;
         mapping (address => uint) public balances;
-
-        // Events allow clients to react to specific
-        // contract changes you declare
+        // Events erlauben Clients auf
+        // spezifische Contract Aenderungen zu reagieren
         event Sent(address from, address to, uint amount);
 
-        // Constructor code is only run when the contract
-        // is created
+        // Der Konstruktur Code wird nur bei der
+        // Erstellung des Contract ausgefuehrt
         constructor() public {
             minter = msg.sender;
         }
-
-        // Sends an amount of newly created coins to an address
-        // Can only be called by the contract creator
+        // Sendet eine Anzahl an neuerstellten Coins an eine Adresse
+        // Kann nur von dem Ersteller des Contracts aufgerufen werden
         function mint(address receiver, uint amount) public {
             require(msg.sender == minter);
             require(amount < 1e60);
             balances[receiver] += amount;
         }
 
-        // Sends an amount of existing coins
-        // from any caller to an address
+        // Sendet eine Anzahl von Coins von einem beliebigen
+        // Aufrufer an eine Adresse
         function send(address receiver, uint amount) public {
             require(amount <= balances[msg.sender], "Insufficient balance.");
             balances[msg.sender] -= amount;
