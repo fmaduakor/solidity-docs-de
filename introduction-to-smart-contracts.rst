@@ -8,7 +8,7 @@ Einführung in Smart Contracts
 Ein einfacherer Smart Contract
 *******************************
 
-Lass uns mit einem einfachen Beispiel anfangen, bei dem der Wert einer variable
+Lass uns mit einem einfachen Beispiel anfangen, bei dem der Wert einer Variable
 gesetzt wird und ihn für andere Smart Contracts zugreifbar macht.
 Es ist in Ordnung, wenn du jetzt noch nicht alles verstehst. Weitere Details
 schauen wir uns später an.
@@ -138,7 +138,7 @@ eine State Variable mit dem gleichen namen. Wir brauchen diese Funktion nicht hi
 
 Die nächste Zeile ``mapping (address => uint) public balances;`` erstellt auch eine öffentliche
 State Variable, aber dieser Datentyp ist etwas komplexer.
-Der :ref:`mapping <mapping-types>` Datentyp ordnet Adressen zu :ref:`unsigned integers <integers>`.
+Der :ref:`mapping <mapping-types>` Datentyp ordnet Adressen zu :ref:`unsigned integers 
 
 Mappings can be seen as `hash tables <https://en.wikipedia.org/wiki/Hash_table>`_ which are
 virtually initialised such that every possible key exists from the start and is mapped to a
@@ -366,18 +366,20 @@ returns that code when executed.
 Gas
 ===
 
-Upon creation, each transaction is charged with a certain amount of **gas**,
-whose purpose is to limit the amount of work that is needed to execute
-the transaction and to pay for this execution at the same time. While the EVM executes the
-transaction, the gas is gradually depleted according to specific rules.
+Jede Transaktion kostet bei der Erstellung ein gewissen Wert an **Gas**,
+welcher sicherstellen soll, dass die notwendige Arbeit um eine Transaktion
+auszuführen limitiert ist und um für diese Ausführung zu zahlen.
+Während die EMV die Transaktion ausführt, wird das Gas entsprechend spezifischer
+Regeln aufgebraucht.
 
-The **gas price** is a value set by the creator of the transaction, who
-has to pay ``gas_price * gas`` up front from the sending account.
-If some gas is left after the execution, it is refunded to the creator in the same way.
+Der **Gas Preis** ist ein Wert der von dem Ersteller der Transatkion erstellt wird,
+der den ``gas_price * gas`` vorab von seinem sendenen Account zahlen muss.
+Wenn nach der Ausführung Reste an Gas existieren, werden diese an den Ersteller
+in gleicher Weise zurück transferiert.
 
-If the gas is used up at any point (i.e. it would be negative),
-an out-of-gas exception is triggered, which reverts all modifications
-made to the state in the current call frame.
+Wenn das Gas an irgendeiner Stelle aufgebraucht wird (d.h. es würde negativ werden), wird eine
+out-of-gas Exception ausgelöst, die alle Modifikationen die an dem State innerhalb
+des aktuellen Call Frames getätigt wurden rückgängig gemacht werden.
 
 .. index:: ! storage, ! memory, ! stack
 
