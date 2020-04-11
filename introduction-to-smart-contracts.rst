@@ -332,34 +332,35 @@ include Ether.
 
 .. index:: ! transaction
 
-Transactions
-============
+Transaktionen
+=============
 
-A transaction is a message that is sent from one account to another
-account (which might be the same or empty, see below).
-It can include binary data (which is called "payload") and Ether.
+Eine Transaktion ist eine Nachricht die von einem Konto zu einem
+anderen Konto (welcher der gleiche oder leer sein kann, siehe unten).
+Sie kann Binäraten (den sogenannten "Payload"") und Ether beinhalten.
 
-If the target account contains code, that code is executed and
-the payload is provided as input data.
+Wenn das Empfängerkonto Code enthält, dann wird dieser Code
+ausgeführt und der Payload wird als Eingabedaten verwendet.
 
-If the target account is not set (the transaction does not have
-a recipient or the recipient is set to ``null``), the transaction
-creates a **new contract**.
-As already mentioned, the address of that contract is not
-the zero address but an address derived from the sender and
-its number of transactions sent (the "nonce"). The payload
-of such a contract creation transaction is taken to be
-EVM bytecode and executed. The output data of this execution is
-permanently stored as the code of the contract.
-This means that in order to create a contract, you do not
-send the actual code of the contract, but in fact code that
-returns that code when executed.
+Wenn das Empfängerkonto nicht gesetz wurde (die Transaktion
+besitzt keinen Emüfänger oder der Empfänger ist "null"), dann
+erstellt die Transatkion einen **neuen Contract**.
+Wie bereits erwähnt, ist die Adresse dieses Contracts nicht die
+Nulladdresse sondern eine Adresse die von dem Sender
+und der Anzahl an Transaktionen (die "Nonce") abgeleitet wird.
+Der Payload einer solchen Transaktion, die einen neuen Contract erstellt,
+wird als EVM Bytecode entgegengenommen und ausgeführt.
+Die Ausgabedaten dieser Ausführung wird permanent als Code
+des Contracts gespeichert.
+Das bedeutet, um einen Contract zu erstellen, wird nicht der eigentliche
+Code des Contracts gesendet, sondern Code, der als Rückgabe den Code
+erzeugt wenn dieser ausgeführt wird.
+
 
 .. note::
-  While a contract is being created, its code is still empty.
-  Because of that, you should not call back into the
-  contract under construction until its constructor has
-  finished executing.
+  Während ein Contract erstellt wird, ist der Code leer.
+  Deshalb sollte auf ihn nicht zugegriffen während, solange
+  dieser nicht vollständig erstellt ist.
 
 .. index:: ! gas, ! gas price
 
