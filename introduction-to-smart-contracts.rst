@@ -138,36 +138,37 @@ eine State Variable mit dem gleichen namen. Wir brauchen diese Funktion nicht hi
 
 Die nächste Zeile ``mapping (address => uint) public balances;`` erstellt auch eine öffentliche
 State Variable, aber dieser Datentyp ist etwas komplexer.
-Der :ref:`mapping <mapping-types>` Datentyp ordnet Adressen zu :ref:`unsigned integers 
+Der :ref:`mapping <mapping-types>` Datentyp ordnet Adressen zu :ref:`unsigned integers` 
 
-Mappings can be seen as `hash tables <https://en.wikipedia.org/wiki/Hash_table>`_ which are
-virtually initialised such that every possible key exists from the start and is mapped to a
-value whose byte-representation is all zeros. However, it is neither possible to obtain a list of all keys of
-a mapping, nor a list of all values. Record what you
-added to the mapping, or use it in a context where this is not needed. Or
-even better, keep a list, or use a more suitable data type.
+Mappings können als virtuell instanziierte `Hashtabellen <https://de.wikipedia.org/wiki/Hashtabelle>`_ angesehen werden, bei denen von Beginn
+an jeder mögliche Key bereits existiert und zu einem Wert mappt, dessen Byte-Repräsentation vollständig aus Nullen besteht.
+Es ist jedoch nicht möglich eine vollständige Liste aller Schlüssel eines Mappings noch alle Werte auszulesen.
+Entweder musst du speichern, was du zu einem Mapping hinzugefügt hast oder diese Informationen müssen in dem Kontext nicht wichtig sein.
+Or even better, keep a list, or use a more suitable data type.
 
-The :ref:`getter function<getter-functions>` created by the ``public`` keyword
-is more complex in the case of a mapping. It looks like the
-following::
+Die :ref:`Getter Funktion<getter-functions>` welche durch das ``public`` Schlüsselwort erstellt wird ist bei der Verwendung von Mappings komplexer.
+Sie sieht wie folgt aus::
 
     function balances(address _account) external view returns (uint) {
         return balances[_account];
     }
 
-You can use this function to query the balance of a single account.
+Wie du sehen kannst wird durch die Funktion die Balance eines einzelnen Accounts abgefragt.
 
-.. index:: event
 
-The line ``event Sent(address from, address to, uint amount);`` declares
-an :ref:`"event" <events>`, which is emitted in the last line of the function
-``send``. Ethereum clients such as web applications can
-listen for these events emitted on the blockchain without much
-cost. As soon as it is emitted, the listener receives the
-arguments ``from``, ``to`` and ``amount``, which makes it possible to track
-transactions.
+.. index:: Event
 
-To listen for this event, you could use the following
+Die Zeile ``event Sent(address from, address to, uint amount);`` deklariert ein :ref:`"Event" <events>`,
+welches durch die letzte Zeile der Funktion ``send`` gesendet wird.
+Etherem clients (z.B. Webapplikationen), könnnen als Listener diese Events, die über die Blockchain
+gesendet werden, verarbeiten, ohne dass hierfür große Kosten anfallen.
+Sobald das Event gesendet wird, erhält der Listener die Argumente ``from``, ``to`` und ``amount``, anhand der die Transaktion
+identifiziert werden kann.
+
+Um das Event zu verarbeiten, kann der folgende JavaScript Code verwendet werden. Er verwendet `web3.js <https://github.com/ethereum/web3.js/>`_ verwendet um 
+das ``Coin`` Objekt zu erstellen,--
+
+--To listen for this event, you could use the following
 JavaScript code, which uses `web3.js <https://github.com/ethereum/web3.js/>`_ to create the ``Coin`` contract object,
 and any user interface calls the automatically generated ``balances`` function from above::
 
@@ -182,36 +183,36 @@ and any user interface calls the automatically generated ``balances`` function f
         }
     })
 
-.. index:: coin
+.. index:: Coin
 
-The :ref:`constructor<constructor>` is a special function run during the creation of the contract and
-cannot be called afterwards. In this case, it permanently stores the address of the person creating the
-contract. The ``msg`` variable (together with ``tx`` and ``block``) is a
-:ref:`special global variable <special-variables-functions>` that
-contains properties which allow access to the blockchain. ``msg.sender`` is
-always the address where the current (external) function call came from.
+Der :ref:`Konstruktor<constructor>` ist eine Spezialfunktion, die während der Erstellung des Contracts ausgeführt wird
+und danach nicht mehr aufgerufen werden kann. In unserem Fall, speichert sie irreversibel die Adresse der Person,
+die diesen Contract erstellt hat. Die ``msg`` Variable (zusammen mit ``tx`` und ``block``) ist eine 
+:ref:`special global variable <special-variables-functions>` die Eigenschaften enthält die den Zugriff auf die Blockchain erlauben.
+``msg.sender`` ist immer die Adresse von der die aktuelle (externe) Funktionsaufruf kommt.
 
-The functions that make up the contract, and that users and contracts can call are ``mint`` and ``send``.
+Die Funktionen die die Eigenschaften des Contracts darstellen, die von Benutzern und Contracts aufgerufen werden können sind ``mint`` und ``send``.
 
-The ``mint`` function sends an amount of newly created coins to another address.
-The :ref:`require <assert-and-require>` function call defines conditions that reverts all changes if not met.
-In this example, ``require(msg.sender == minter);`` ensures that only the creator of the contract can call ``mint``,
-and ``require(amount < 1e60);`` ensures a maximum amount of tokens. This ensures that there are no overflow errors in the future.
+Die ``mint`` Funktion sendet einen Betrag an neuerstellen Coins zu einer anderen Adresse.
+Der :ref:`require <assert-and-require>` Funktionsaufruf definiert Bedinungen. Wenn diese Bedinungen nicht erfüllt sind, werden alle Änderungen rückgängig gemacht.
+In diesem Beispiel stellt ``require(msg.sender == minter);`` sicher, dass nur der Ersteller des Contracts die ``mint`` Funktion aufrufen kann
+und ``require(amount < 1e60);`` definiert das Maximum an Tokens. Hierdurch wird sichergestellt, dass keine Overflows in Zukunft möglich sind.
 
-The ``send`` function can be used by anyone (who already
-has some of these coins) to send coins to anyone else. If the sender does not have
-enough coins to send, the ``require`` call fails and provides the
-sender with an appropriate error message string.
+Die ``send`` Funktion kann von jedem (der bereits diese Art an Coins benitzt) benutzt werden um Coins an jeden zu senden.
+Wenn der Sender nicht genügend Coins um senden besitzt, schläft der ``require`` Aufruf fehl und gibt dem Sender
+eine Fehlermeldung aus.
+
 
 .. note::
-    If you use
-    this contract to send coins to an address, you will not see anything when you
-    look at that address on a blockchain explorer, because the record that you sent
-    coins and the changed balances are only stored in the data storage of this
-    particular coin contract. By using events, you can create
-    a "blockchain explorer" that tracks transactions and balances of your new coin,
-    but you have to inspect the coin contract address and not the addresses of the
-    coin owners.
+
+    Wenn dieser Contract verwendet wird um Coins an eine Adresse zusenden,
+    kann man über den Blockchain-Explorer diese Coins nicht auf der Adresse sehen,
+    da die Konstostände der einzelnen Coins nur in dem Datenspeicher (data storage) dieses spezifischen
+    Contracts gespeichert sind. Durch Events kann jedoch ein "Blcokchain-Explorer"
+    erstellt werden, der die Transaktionen und Kontostände dieses Coins aufzeichnet.
+    Hierbei muss aber die Adresse des Contracts beobachtet werden und nicht die 
+    Adressen der Coin Besitzer.
+ 
 
 .. _blockchain-basics:
 
