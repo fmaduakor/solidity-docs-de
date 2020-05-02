@@ -220,38 +220,38 @@ eine Fehlermeldung aus.
 Blockchain Basics
 *****************
 
-Blockchains as a concept are not too hard to understand for programmers. The reason is that
-most of the complications (mining, `hashing <https://en.wikipedia.org/wiki/Cryptographic_hash_function>`_,
+Das Konzept der Blockchain ist für Programmierer einfach zu verstehen.
+Das liegt daran, dass die meisten der schwierigen Konzepte (mining, `hashing <https://en.wikipedia.org/wiki/Cryptographic_hash_function>`_,
 `elliptic-curve cryptography <https://en.wikipedia.org/wiki/Elliptic_curve_cryptography>`_,
 `peer-to-peer networks <https://en.wikipedia.org/wiki/Peer-to-peer>`_, etc.)
-are just there to provide a certain set of features and promises for the platform. Once you accept these
-features as given, you do not have to worry about the underlying technology - or do you have
-to know how Amazon's AWS works internally in order to use it?
+nur vorhanden sind um eine gewisse Eigenschaften der Plattform sicherzustellen. Sobald man als Programmierer
+diese Eigenschaften als gegeben annimmt, muss man sich keine Sorgen mehr über die darunterliegenden Technologie machen.
+Ähnlich wie man um Amazons AWS zu benutzen, nicht wissen muss wie die internen Prozesse dort aussehen.
+
 
 .. index:: transaction
 
-Transactions
-============
+Transkationen
+=============
 
-A blockchain is a globally shared, transactional database.
-This means that everyone can read entries in the database just by participating in the network.
-If you want to change something in the database, you have to create a so-called transaction
-which has to be accepted by all others.
-The word transaction implies that the change you want to make (assume you want to change
-two values at the same time) is either not done at all or completely applied. Furthermore,
+Eine Blockchain ist eine weltweit verteile, transaktionale Datenbank.
+Das bedeutet, dass jeder Einträge aus dieser Datenbank auslesen kann, indem er an dem Netzwerk teilnimmt.
+Wenn man etwas an dieser Datenbank ändern möchte, muss man eine sogenannte Transkation erstellen, die
+von allen anderen akzeptiert werden muss.
+Das Wort 'Transaktion' impliziert, dass eine Änderungen die gemacht werden soll
+entweder vollständig oder gar nicht ausgeführt wird. 
+Furthermore,
 while your transaction is being applied to the database, no other transaction can alter it.
 
-As an example, imagine a table that lists the balances of all accounts in an
-electronic currency. If a transfer from one account to another is requested,
-the transactional nature of the database ensures that if the amount is
-subtracted from one account, it is always added to the other account. If due
-to whatever reason, adding the amount to the target account is not possible,
-the source account is also not modified.
+Ein Beispiel: Stell dir eine Tabelle vor die alle Kontostände aller Konten in einer
+elektronischen Währung auflistet. Wenn eine Überweisung von einem Konto zu einem anderen angefordert wird,
+stellt die transaktionale Datenbank sicher, dass wenn der Überweisungsbetrag von einem Konto substrahiert wird,
+er immer dem anderen Konto gutgeschrieben wird. Wenn, aus beliebgen Gründen, die Gutschrift auf das Empfängerkonto
+nicht möglich ist, wird auch das Senderkonto nicht verändert.
 
-Furthermore, a transaction is always cryptographically signed by the sender (creator).
-This makes it straightforward to guard access to specific modifications of the
-database. In the example of the electronic currency, a simple check ensures that
-only the person holding the keys to the account can transfer money from it.
+Außerdem ist eine Transaktion immer von dem Sender kryptographisch signiert.
+Dies macht es einfach, einzelne Änderungen der Datenbank zu schützen. In unserem Beispiel stellt eine einfache Überprüfung
+sicher, dass nur die Person, die den Schlüssel zu dem Konto kennt, auch eine Überweisung von diesem Konto vornehmen kann.
 
 .. index:: ! block
 
