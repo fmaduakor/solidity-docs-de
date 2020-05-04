@@ -231,7 +231,7 @@ diese Eigenschaften als gegeben annimmt, muss man sich keine Sorgen mehr über d
 
 .. index:: transaction
 
-Transkationen
+Transaktionen
 =============
 
 Eine Blockchain ist eine weltweit verteile, transaktionale Datenbank.

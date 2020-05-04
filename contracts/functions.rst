@@ -295,27 +295,28 @@ Below you can see an example of a Sink contract that uses function ``receive``.
 
 .. _fallback-function:
 
-Fallback Function
+Fallback Funktion
 =================
 
-A contract can have at most one ``fallback`` function, declared using ``fallback () external [payable]``
-(without the ``function`` keyword).
-This function cannot have arguments, cannot return anything and must have ``external`` visibility.
-It is executed on a call to the contract if none of the other
-functions match the given function signature, or if no data was supplied at
-all and there is no :ref:`receive Ether function <receive-ether-function>`.
-The fallback function always receives data, but in order to also receive Ether
-it must be marked ``payable``.
+Ein Contract kann höchstens eine ``fallback``  Funktion besitzen. Diese Funktion wird mit ``fallback () external [payable]``
+(ohne das ``function`` Schlüsselwort) deklariert. Diese Funktion darf keine Argumente besitzen, kann nichts zurückgeben und die Sicherheitbarkeit
+muss ``external`` sein.
+Diese Funktion wird ausgeführt, wenn keine der anderen Funktionen zu der gegegeben Funktionsignatur passen, oder wenn wenn keine Daten
+angegebenen wurden und keine :ref:`receive Ether function <receive-ether-function>` existiert.
+Die Fallback Funktion erhält immer Daten, aber damit sie auch in der Lage ist Ether zu erhalten, muss sie als ``payable`` markiert sein.
 
 In the worst case, if a payable fallback function is also used in
 place of a receive function, it can only rely on 2300 gas being
 available (see :ref:`receive Ether function <receive-ether-function>`
 for a brief description of the implications of this).
 
-Like any function, the fallback function can execute complex
-operations as long as there is enough gas passed on to it.
+Wie jeder andere Funktion, kann auch die Fallback Funktion komplexe Operationen ausführen, solange genug Gas vorhanden ist.
 
 .. warning::
+    Eine ``payable``  wird auch für reine Ether Transfers ausgeführt, wenn keine :ref:`receive Ether function <receive-ether-function>`
+    vorhanden ist. Es wird empfholen zusätzlich immer eine receive Ether
+    function zu definieren, wenn eine payable Fallback Funktion definiert ist um zwischen Ether Transfers..
+
     A ``payable`` fallback function is also executed for
     plain Ether transfers, if no :ref:`receive Ether function <receive-ether-function>`
     is present. It is recommended to always define a receive Ether
@@ -338,11 +339,10 @@ operations as long as there is enough gas passed on to it.
     pragma solidity >0.6.1 <0.7.0;
 
     contract Test {
-        // This function is called for all messages sent to
-        // this contract (there is no other function).
-        // Sending Ether to this contract will cause an exception,
-        // because the fallback function does not have the `payable`
-        // modifier.
+        // Diese Funktion wird für alle Nachrichten die an den Contract
+        // gesendet werden aufgerufen (es exisitert keine weitere Funktion)
+        // Wenn Ether zu diesem Contract gesendet werden, wird ein Fehler ausgegeben
+        // da die Fallbafunktion den payable Parameter nicht besitzt
         fallback() external { x = 1; }
         uint x;
     }
